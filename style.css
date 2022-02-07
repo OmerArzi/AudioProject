@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+
+
+/* variables */
+:root {
+    --primary-font: 'IBM Plex Sans', sans-serif;
+    --btn-radius: 50px;
+    background-color: #767676;
+}
+
+/* Default settings */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Layout */
+.page-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.channel-container {
+    display: flex;
+    padding: 10px;
+}
+
+footer {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-control {
+    display: flex;
+    justify-content: center;
+}
+
+.audio-container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+/* Typography */
+
+.channel-container {
+    font-family: var(--primary-font);
+}
+
+.channel-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 1.3rem;
+    width: 60px;
+}
+
+.mute,
+.play-control button {
+    font-family: var(--primary-font);
+    font-size: 1.2rem;
+}
+
+/* buttons styles */
+button {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: var(--btn-radius);
+}
+
+/*Sliders and Switches style:*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    transform: translateY(17px);
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* loop button */
+#loop {
+    position: absolute;
+    transform: translateY(60px);
+    border: solid black;
+}
+
+#loop h1 {
+    position: relative;
+    z-index: 1;
+    color: rgba(0, 0, 0, 0.4)
+}
