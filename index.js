@@ -44,13 +44,13 @@ function createChannel(name, audioSourcePath){
 function initChannels(){
     const channelDict = {
         Bass:"https://raw.githubusercontent.com/OmerArzi/AudioProject/master/audio/Bass.mp3",
-        Kick: "/audio/Kick.mp3",
-        Snare: "/audio/Snare.mp3",
-        Piano: "/audio/Piano.mp3",
-        Guitar: "/audio/Guitar.mp3",
-        Lead: "/audio/Lead.mp3",
-        Brass: "/audio/Brass.mp3",
-        Synth: "/audio/Synth.mp3"
+        Kick: "https://raw.githubusercontent.com/OmerArzi/AudioProject/master/audio/Kick.mp3",
+        Snare: "https://raw.githubusercontent.com/OmerArzi/AudioProject/master/audio/Snare.mp3",
+        Piano: "https://raw.githubusercontent.com/OmerArzi/AudioProject/master/audio/Piano.mp3",
+        Guitar: "https://raw.githubusercontent.com/OmerArzi/AudioProject/master/audio/Guitar.mp3",
+        Lead: "https://raw.githubusercontent.com/OmerArzi/AudioProject/master/audio/Lead.mp3",
+        Brass: "https://raw.githubusercontent.com/OmerArzi/AudioProject/master/audio/Brass.mp3",
+        Synth: "https://raw.githubusercontent.com/OmerArzi/AudioProject/master/audio/Synth.mp3"
     }
 
     for(const[name,audioPath] of Object.entries(channelDict)){
