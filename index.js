@@ -90,7 +90,7 @@ function pauseAllAudio(audios){
 
 function handleLoop() {
     loop.loopOn = !loop.loopOn
-    if(!loop.loopOn && audios[0].style.animationPlayState === "paused"){
+    if(!loop.loopOn && audios[0].currentTime> 0){
         timeCursor.style.animationIterationCount = '1'
     }
     else {
@@ -99,12 +99,17 @@ function handleLoop() {
             audio.loop = loop.loopOn
         })
     }
+    console.log(timeCursor.style.animationIterationCount)
 }
 
+function onChangeLoop(){
+
+}
 
 colorizeElements(channels);
 initComponents()
 mutesButtons.forEach((singleMute,i)=>{singleMute.addEventListener('click',
     ()=>{audios[i].classList.toggle('mute')})})
+loop.addEventListener("change", );
 playAll.addEventListener('click',()=>{playAllAudio(audios)})
 pauseAll.addEventListener('click', ()=>{pauseAllAudio(audios)})
