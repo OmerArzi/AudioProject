@@ -7,7 +7,7 @@ const playAll = document.getElementById('play');
 const pauseAll = document.getElementById('stop')
 const loop = document.getElementById('loop')
 const timeCursor = document.querySelector('.cursor')
-
+const animationDuration = 12.0582
 function createChannel(name, audioSourcePath){
     const sectionEl = document.createElement("section")
     const divName = document.createElement("div")
@@ -88,28 +88,27 @@ function pauseAllAudio(audios){
     })
 }
 
+function handleAnimation() {
+    let timeLeft = animationDuration - audios[0].currentTime
+    if (!loop.loopOn && timeLeft < 0.1) {
+        timeCursor.style.animationIterationCount = '1';
+    } else {
+        timeCursor.style.animationIterationCount = 'infinite';
+    }
+}
+
+
+
 function handleLoop() {
-    loop.loopOn = !loop.loopOn
-    if(!loop.loopOn && audios[0].currentTime> 0){
-        timeCursor.style.animationIterationCount = '1'
-    }
-    else {
-        timeCursor.style.animationIterationCount = 'infinite'
-        audios.forEach((audio) => {
-            audio.loop = loop.loopOn
-        })
-    }
-    console.log(timeCursor.style.animationIterationCount)
+    loop.loopOn = !loop.loopOn;
+    audios.forEach((audio) => {
+        audio.loop = loop.loopOn;
+    });
 }
-
-function onChangeLoop(){
-
-}
-
+setInterval(() => {handleAnimation();}, 100);
 colorizeElements(channels);
 initComponents()
 mutesButtons.forEach((singleMute,i)=>{singleMute.addEventListener('click',
     ()=>{audios[i].classList.toggle('mute')})})
-loop.addEventListener("change", );
 playAll.addEventListener('click',()=>{playAllAudio(audios)})
 pauseAll.addEventListener('click', ()=>{pauseAllAudio(audios)})
