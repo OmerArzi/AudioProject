@@ -43,7 +43,7 @@ function createChannel(name, audioSourcePath){
 
 function initChannels(){
     const channelDict = {
-        Bass:"./audio/Bass.mp3",
+        Bass:"/audio/Bass.mp3",
         Kick: "/audio/Kick.mp3",
         Snare: "/audio/Snare.mp3",
         Piano: "/audio/Piano.mp3",
