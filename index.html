@@ -10,110 +10,14 @@
 <body>
 <div class="page-container">
   <main>
-    <section class="channel-container">
-      <div class="channel-name">Bass</div>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-      <div class="audio-container">
-        <audio controls>
-          <source src="/audio/Bass.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-    </section>
-    <section class="channel-container">
-      <div class="channel-name">Kick</div>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-      <div class="audio-container">
-        <audio controls>
-          <source src="/audio/Kick.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-    </section>
-    <section class="channel-container">
-      <div class="channel-name">Snare</div>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-      <div class="audio-container">
-        <audio controls>
-          <source src="/audio/Snare.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-    </section>
-    <section class="channel-container">
-      <div class="channel-name">Piano</div>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-      <div class="audio-container">
-        <audio controls>
-          <source src="/audio/Piano.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-    </section>
-    <section class="channel-container">
-      <div class="channel-name">Guitar</div>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-      <div class="audio-container">
-        <audio controls>
-          <source src="/audio/Guitar.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-    </section>
-    <section class="channel-container">
-      <div class="channel-name">Lead</div>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-      <div class="audio-container">
-        <audio controls>
-          <source src="/audio/Lead.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-    </section>
-    <section class="channel-container">
-      <div class="channel-name">Brass</div>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-      <div class="audio-container">
-        <audio controls>
-          <source src="/audio/Brass.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-    </section>
-    <section class="channel-container">
-      <div class="channel-name">Synth</div>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-      <div class="audio-container">
-        <audio controls>
-          <source src="/audio/Synth.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-    </section>
   </main>
   <footer>
     <section class="play-control">
       <button id="play">Play</button>
       <button id="stop">Stop</button>
       <label class="switch" id="loop">
-        <h1 onclick="handleLoop()">Loop</h1>
-        <input type="checkbox">
+        <h1>Loop</h1>
+        <input type="checkbox" onclick="handleLoop()">
         <span class="slider"></span>
       </label>
     </section>
