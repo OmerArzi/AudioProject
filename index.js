@@ -8,6 +8,7 @@ const pauseAll = document.getElementById('stop')
 const loop = document.getElementById('loop')
 const timeCursor = document.querySelector('.cursor')
 const animationDuration = 12.0582
+
 function createChannel(name, audioSourcePath){
     const sectionEl = document.createElement("section")
     const divName = document.createElement("div")
