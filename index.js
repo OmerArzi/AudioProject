@@ -6,7 +6,7 @@ const mutesButtons = document.querySelectorAll('.channel-container .switch input
 const playAll = document.getElementById('play');
 const pauseAll = document.getElementById('stop')
 const loop = document.getElementById('loop')
-
+const timeCursor = document.querySelector('.cursor')
 
 function createChannel(name, audioSourcePath){
     const sectionEl = document.createElement("section")
@@ -73,12 +73,14 @@ function initLoopFlag(loopButton)
 }
 
 function playAllAudio(audios){
+    timeCursor.classList.add("animationOn")
     audios.forEach((singleAudio)=>{
         if(!singleAudio.classList.contains('mute')){
         singleAudio.play()}})
 }
 
 function pauseAllAudio(audios){
+    timeCursor.classList.remove("animationOn")
     audios.forEach((singleAudio)=>{
         singleAudio.pause()
         singleAudio.currentTime = 0
@@ -89,6 +91,7 @@ function handleLoop(){
     console.log('clicked');
     console.log(loop.myFlag)
     loop.myFlag = !loop.myFlag
+    timeCursor.classList.toggle("infiniteOn")
     audios.forEach((audio)=>{
         audio.loop = loop.myFlag
     })

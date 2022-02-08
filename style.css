@@ -5,7 +5,10 @@
 :root {
     --primary-font: 'IBM Plex Sans', sans-serif;
     --btn-radius: 50px;
-    background-color: #767676;
+    --width-medium: 60px;
+    --width-name-padding: 20px;
+    --app-width: 1000px;
+
 }
 
 /* Default settings */
@@ -16,19 +19,53 @@
 
 /* Layout */
 .page-container {
-    max-width: 1000px;
+    width: var(--app-width);
     margin: auto;
+
+}
+
+body{
+    background-color: #767676;
 }
 
 main {
     display: flex;
     flex-direction: column;
-
+    position: relative;
 }
 
 .channel-container {
     display: flex;
     padding: 10px;
+}
+
+.time-ruler{
+    margin-left: auto;
+    width: calc(var(--app-width) - 3*var(--width-medium) - 2*var(--width-name-padding));
+}
+
+.cursor{
+    width: 5px;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+
+}
+
+.cursor.animationOn{
+    animation-duration: 12.0s;
+    animation-iteration-count: 1;
+    animation-name: cursorAnimation;
+    animation-timing-function: linear;
+}
+
+.cursor.animationOn.infiniteOn{
+    animation-iteration-count: infinite;
+}
+
+@keyframes cursorAnimation {
+    from{left:calc(3*var(--width-medium) + 2*var(--width-name-padding))}
+    to{left:100%}
 }
 
 footer {
@@ -59,12 +96,11 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: var(--width-name-padding);
     font-size: 1.3rem;
-    width: 60px;
+    width: var(--width-medium);
 }
 
-.mute,
 .play-control button {
     font-family: var(--primary-font);
     font-size: 1.2rem;
@@ -82,7 +118,7 @@ button {
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: var(--width-medium);
     height: 34px;
     transform: translateY(17px);
 }
