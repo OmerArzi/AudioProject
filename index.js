@@ -27,6 +27,7 @@ function createChannel(name, audioSourcePath){
     audioDiv.classList.add("audio-container")
     audioSource.src = audioSourcePath
     audioSource.type = "audio/mpeg"
+    audioEl.preload = "metadata"
 
     audioEl.appendChild(audioSource)
     audioDiv.appendChild(audioEl)
@@ -54,7 +55,6 @@ function initChannels(){
     for(const[name,audioPath] of Object.entries(channelDict)){
         const currSection = createChannel(name, audioPath)
         mainEl.appendChild(currSection)
-        console.log(currSection.innerHTML)
     }
 }
 
@@ -66,14 +66,15 @@ function colorizeElements(elements) {
 
 }
 
-function initLoopFlag(loopButton)
+function initComponents()
 {
-    loopButton.classList.toggle('myFlag')
-    loopButton.myFlag = false
+    loop.loopOn = false
+    console.log(loop)
 }
 
 function playAllAudio(audios){
     timeCursor.classList.add("animationOn")
+
     audios.forEach((singleAudio)=>{
         if(!singleAudio.classList.contains('mute')){
         singleAudio.play()}})
@@ -87,19 +88,22 @@ function pauseAllAudio(audios){
     })
 }
 
-function handleLoop(){
-    console.log('clicked');
-    console.log(loop.myFlag)
-    loop.myFlag = !loop.myFlag
-    timeCursor.classList.toggle("infiniteOn")
-    audios.forEach((audio)=>{
-        audio.loop = loop.myFlag
-    })
+function handleLoop() {
+    loop.loopOn = !loop.loopOn
+    if(!loop.loopOn && audios[0].style.animationPlayState === "paused"){
+        timeCursor.style.animationIterationCount = '1'
+    }
+    else {
+        timeCursor.style.animationIterationCount = 'infinite'
+        audios.forEach((audio) => {
+            audio.loop = loop.loopOn
+        })
+    }
 }
 
 
 colorizeElements(channels);
-initLoopFlag(loop)
+initComponents()
 mutesButtons.forEach((singleMute,i)=>{singleMute.addEventListener('click',
     ()=>{audios[i].classList.toggle('mute')})})
 playAll.addEventListener('click',()=>{playAllAudio(audios)})
