@@ -106,9 +106,9 @@ function handleLoop() {
         audio.loop = loop.loopOn;
     });
 }
+initComponents()
 setInterval(() => {handleAnimation();}, 100);
 colorizeElements(channels);
-initComponents()
 mutesButtons.forEach((singleMute,i)=>{singleMute.addEventListener('click',
     ()=>{audios[i].classList.toggle('mute')})})
 playAll.addEventListener('click',()=>{playAllAudio(audios)})
