@@ -92,17 +92,17 @@ function pauseAllAudio(audios){
 function handleAnimation() {
     let timeLeft = animationDuration - audios[0].currentTime
     if (!loop.loopOn && timeLeft < 0.1) {
-        timeCursor.style.animationIterationCount = '1';
+        timeCursor.style.animationIterationCount = '1'
+        timeCursor.style.animationPlayState= 'initial'
     } else {
-        timeCursor.style.animationIterationCount = 'infinite';
+        timeCursor.style.animationIterationCount = 'infinite'
     }
 }
-
-
 
 function handleLoop() {
     loop.loopOn = !loop.loopOn;
     audios.forEach((audio) => {
+        console.log(timeCursor.classList)
         audio.loop = loop.loopOn;
     });
 }
